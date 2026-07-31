@@ -1,0 +1,525 @@
+/* =========================
+   GLOBAL STYLES
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    overflow:hidden;
+    background:linear-gradient(-45deg,#ff9ecb,#ffc0cb,#ffd6e7,#ff8eb6);
+    background-size:400% 400%;
+    animation:gradientMove 12s ease infinite;
+    color:white;
+}
+
+@keyframes gradientMove{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+.screen{
+    width:100vw;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    position:absolute;
+    top:0;
+    left:0;
+    transition:1s;
+}
+
+.hidden{
+    display:none;
+}
+
+/* =========================
+   LOADER
+========================= */
+
+#loader{
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:#ff6fa8;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+}
+
+#loader h1{
+    font-size:2rem;
+    animation:pulse 1.2s infinite;
+}
+
+@keyframes pulse{
+    50%{
+        transform:scale(1.1);
+    }
+}
+
+/* =========================
+   GLASS CARD
+========================= */
+
+.glass{
+    width:90%;
+    max-width:650px;
+    padding:40px;
+    border-radius:30px;
+
+    background:rgba(255,255,255,.18);
+
+    backdrop-filter:blur(18px);
+
+    text-align:center;
+
+    box-shadow:0 10px 40px rgba(0,0,0,.25);
+}
+
+.glass h1{
+    font-size:4rem;
+    font-family:'Great Vibes',cursive;
+}
+
+.glass h2{
+    font-size:2.8rem;
+    margin:15px 0;
+}
+
+.glass p{
+    font-size:1.2rem;
+    margin:20px 0;
+    line-height:1.8;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+button{
+
+    padding:15px 35px;
+
+    border:none;
+
+    border-radius:50px;
+
+    cursor:pointer;
+
+    font-size:1rem;
+
+    background:white;
+
+    color:#ff3b7d;
+
+    transition:.4s;
+
+    font-weight:bold;
+
+}
+
+button:hover{
+
+    transform:scale(1.08);
+
+    box-shadow:0 10px 30px rgba(255,255,255,.5);
+
+}
+
+.from{
+
+    margin-top:25px;
+
+    font-style:italic;
+
+}
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+.hearts span{
+
+position:absolute;
+
+bottom:-100px;
+
+font-size:30px;
+
+animation:heartFloat linear infinite;
+
+}
+
+.hearts span:nth-child(1){
+
+left:5%;
+
+animation-duration:9s;
+
+}
+
+.hearts span:nth-child(2){
+
+left:18%;
+
+animation-duration:12s;
+
+}
+
+.hearts span:nth-child(3){
+
+left:30%;
+
+animation-duration:8s;
+
+}
+
+.hearts span:nth-child(4){
+
+left:45%;
+
+animation-duration:10s;
+
+}
+
+.hearts span:nth-child(5){
+
+left:60%;
+
+animation-duration:7s;
+
+}
+
+.hearts span:nth-child(6){
+
+left:75%;
+
+animation-duration:11s;
+
+}
+
+.hearts span:nth-child(7){
+
+left:88%;
+
+animation-duration:9s;
+
+}
+
+.hearts span:nth-child(8){
+
+left:96%;
+
+animation-duration:13s;
+
+}
+
+@keyframes heartFloat{
+
+0%{
+
+transform:translateY(0);
+
+opacity:0;
+
+}
+
+15%{
+
+opacity:1;
+
+}
+
+100%{
+
+transform:translateY(-120vh);
+
+opacity:0;
+
+}
+
+}
+
+/* =========================
+   TYPING SCREEN
+========================= */
+
+.typingBox{
+
+width:90%;
+
+max-width:800px;
+
+text-align:center;
+
+}
+
+#typing{
+
+font-size:3rem;
+
+line-height:1.8;
+
+font-family:'Great Vibes',cursive;
+
+}
+
+/* =========================
+   BIRTHDAY
+========================= */
+
+.birthdayTitle{
+
+font-size:5rem;
+
+font-family:'Great Vibes',cursive;
+
+animation:glow 2s infinite alternate;
+
+}
+
+.name{
+
+font-size:3rem;
+
+margin:20px;
+
+}
+
+@keyframes glow{
+
+from{
+
+text-shadow:0 0 10px white;
+
+}
+
+to{
+
+text-shadow:0 0 35px hotpink;
+
+}
+
+}
+/* =========================
+   PHOTO GALLERY
+========================= */
+
+#gallery h2{
+    font-size:3rem;
+    margin-bottom:30px;
+    font-family:'Great Vibes',cursive;
+}
+
+.slider{
+    width:320px;
+    height:420px;
+    border-radius:25px;
+    overflow:hidden;
+    box-shadow:0 15px 40px rgba(0,0,0,.35);
+    border:6px solid rgba(255,255,255,.5);
+    background:white;
+}
+
+.slider img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:opacity 1s ease;
+}
+
+/* =========================
+   ENVELOPE
+========================= */
+
+.envelope{
+    font-size:120px;
+    animation:floatEnvelope 2.5s ease-in-out infinite;
+    cursor:pointer;
+}
+
+@keyframes floatEnvelope{
+
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-15px);}
+    100%{transform:translateY(0);}
+
+}
+
+#openLetter{
+    margin-top:20px;
+}
+
+#letter{
+    width:90%;
+    max-width:700px;
+    margin-top:30px;
+    padding:35px;
+    border-radius:20px;
+    background:rgba(255,255,255,.22);
+    backdrop-filter:blur(18px);
+    line-height:2;
+    text-align:left;
+    box-shadow:0 15px 40px rgba(0,0,0,.3);
+}
+
+#letter h2{
+    text-align:center;
+    margin-bottom:20px;
+    font-family:'Great Vibes',cursive;
+    font-size:2.8rem;
+}
+
+/* =========================
+   CAKE
+========================= */
+
+.cake{
+    font-size:180px;
+    animation:bounceCake 1.8s infinite;
+}
+
+@keyframes bounceCake{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-15px);
+    }
+
+}
+
+#cakeSection h2{
+    margin:20px;
+    font-size:2.2rem;
+}
+
+/* =========================
+   FINAL SCREEN
+========================= */
+
+#finalScreen{
+    text-align:center;
+}
+
+#finalScreen h1{
+    font-family:'Great Vibes',cursive;
+    font-size:4.5rem;
+    margin-bottom:20px;
+    animation:glow 2s infinite alternate;
+}
+
+#finalScreen h2{
+    font-size:2rem;
+    margin-bottom:15px;
+}
+
+#finalScreen h3{
+    font-weight:300;
+}
+
+/* =========================
+   CONFETTI CANVAS
+========================= */
+
+#confetti{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    pointer-events:none;
+    z-index:999;
+}
+
+/* =========================
+   FADE ANIMATION
+========================= */
+
+.fadeIn{
+    animation:fadeIn 1.2s ease;
+}
+
+@keyframes fadeIn{
+
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+@media(max-width:768px){
+
+.glass{
+    padding:25px;
+}
+
+.glass h1{
+    font-size:3rem;
+}
+
+.glass h2{
+    font-size:2rem;
+}
+
+.birthdayTitle{
+    font-size:3.2rem;
+}
+
+.name{
+    font-size:2rem;
+}
+
+#typing{
+    font-size:2rem;
+}
+
+.slider{
+    width:260px;
+    height:340px;
+}
+
+.cake{
+    font-size:120px;
+}
+
+#finalScreen h1{
+    font-size:3rem;
+}
+
+#letter{
+    padding:20px;
+    font-size:15px;
+}
+
+button{
+    width:85%;
+    max-width:320px;
+}
+
+}
